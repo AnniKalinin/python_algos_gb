@@ -17,3 +17,33 @@
 Алгоритмизатор должен развивать мышление, а это прежде всего практика.
 А без столкновения со сложностями его не развить.
 """
+# сложность O(n^2) - должно быть что-то проще и очевидно короче, но у меня не получился рабочий код в других вариантах
+def find_min(list_obj):
+
+    for i in range(len(list_obj)):
+        while i < (len(list_obj)-1):
+            for j in range(len(list_obj)):
+                while j < (len(list_obj)-1):
+                    if list_obj[i] < list_obj[j]:
+                        a = list_obj[i]
+                        j+=1
+                        if j < len(list_obj):
+                            continue
+                        else:
+                            return a
+                    else:
+                        a = list_obj[j]
+                        i+=1
+                        if i < len(list_obj):
+                            continue
+                        else:
+                            return a
+                
+                return a
+
+
+
+
+# сложность О(n)
+def optimal_min(list_obj):
+    return min(list_obj)

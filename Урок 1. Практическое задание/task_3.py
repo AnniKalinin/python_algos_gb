@@ -22,3 +22,22 @@
 Реализуйте поиск трех компаний с наибольшей годовой прибылью.
 Выведите результат.
 """
+
+import pandas as pd
+# храним данные в dataframe companies_df
+companies_df = pd.DataFrame(columns = ['company', 'annual_profit'])
+
+1. # сложность n
+companies_df.sort_values(by ='annual_profit', ascending = False).head(3)  # n 
+
+
+2.  # сложность n log n
+ max_profit = list(companies_df['annual_profit']) # n
+ max_profit_new = sorted(max_profit, reverse = True) # n log n
+ max_profit_new =max_profit_new[:3] #1
+ companies_df.query('annual_profit in @max_profit_new') #1
+ 
+ #3 Получается, что сложность вторго решения больше . Поэтому первое решение оптимально для такого типа хранения данных
+# не уверена в сложности ф-ции sorted(), но она кажется не меньше, чем у функции sort()
+ # Не ясно какую именно сложность имеет выполнение  .query  для фрейма. По идее это .metod, значит сложность константная. 
+

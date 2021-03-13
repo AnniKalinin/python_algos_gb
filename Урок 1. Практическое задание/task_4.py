@@ -27,3 +27,22 @@
 Для реализации хранилища можно применить любой подход,
 который вы придумаете, например, реализовать словарь.
 """
+df = pd.DataFrame(columns = ['login', 'password', 'activated'], data = data)
+
+log_user = input()
+password = input()
+
+def permission(login):
+    if login is in list(df['login']): # n
+        if df.query('login = "login')['activated'] = "True": #1
+            if  df.query('login = "login')['password'] = password:  #1
+                return "permissin accept" #1
+            else: 
+                return "wrong password" #1
+        else:
+            return "nessesary to activate" #1
+    else:
+        return "no such login in system" #1
+
+# сложность оцениваю как n , поскольку 
+#поиск будет производиться по всей длине списка, а сложность list(n)  будет стремиться к n с увеличением количества пользователей
